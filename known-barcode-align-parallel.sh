@@ -17,7 +17,7 @@ pipeline () {
     
     echo "Running pipeline on ${sample_name}"
     
-    #/Users/merrickpiersonsmela/bbmap/bbmerge.sh in1=${lr} in2=${rr} out=${sample_name}merged.fq.gz outa=${sample_name}_adapters.fa
+    /Users/merrickpiersonsmela/bbmap/bbmerge.sh in1=${lr} in2=${rr} out=${sample_name}merged.fq.gz outa=${sample_name}_adapters.fa
 
     echo "Identifying barcodes"
 
