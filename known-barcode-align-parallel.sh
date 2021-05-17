@@ -21,7 +21,7 @@ pipeline () {
     
     bbmerge.sh in1=${lr} in2=${rr} out=${sample_name}merged.fq.gz outa=${sample_name}_adapters.fa 2> ${sample_name}bbmerge_out.txt
 
-    python3 illumina_align_known_barcodes.py ${sample_name}merged.fq.gz ${2}
+    python3 illumina_align_known_barcodes.py ${sample_name}merged.fq.gz ${2} 2> ${sample_name}unmatched.txt
     
     return 0
 }

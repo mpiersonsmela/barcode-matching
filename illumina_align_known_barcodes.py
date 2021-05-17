@@ -16,7 +16,7 @@ align_params = (2, -1, -1, -.5)
 #match score, mismatch score, gap open penalty, gap extension penalty
 #for now, these parameters are chosen arbitrarily. Need to optimize them.
 
-align_thresh = 35 #threshold for if the alignment is rejected. Depends on align_params
+align_thresh = 30 #threshold for if the alignment is rejected. Depends on align_params
 #With the current settings a perfect match of a 20-mer has a score of 40.
 perfect_match = 40
 
@@ -45,9 +45,11 @@ with gzip.open(sys.argv[1], mode = "rt") as sanger_file:
             known_barcodes.at[best_index, "Counts"] += 1
         else:
             known_barcodes.loc[known_barcodes["Plasmid"] == "Unmatched", ["Counts"]] += 1
+            sys.stderr.write(sequence + '\n')
                 
 countfile_name = sys.argv[1].split("_merged")[0] + "_counts_aligned.csv"
 
 print("Saving counts to "+countfile_name)
 
 known_barcodes.to_csv(countfile_name)
+sys.exit(0)
